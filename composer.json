@@ -1,0 +1,14 @@
+{
+    "name": "tetthys/smart",
+    "description": "A smart service factory related with route paramters",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Tetthys\\Smart\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=8.0"
+    }
+}
