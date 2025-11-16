@@ -23,6 +23,9 @@ class SmartBuilder
          *   - This means that the constructor parameter 'customer' should be resolved from the authenticated user.
          */
 
+        // boot the smart service class for some classes that need callbacks to be registered
+        $smartServiceClass::boot();
+
         // first get the route dependencies
         $routeDependencies = $smartServiceClass::getRouteDependencies();
 
