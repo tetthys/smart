@@ -2,7 +2,6 @@
 
 namespace Tetthys\Smart;
 
-use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 
@@ -38,9 +37,9 @@ class SmartBuilder
                 $resolvedDependencies[$constructorParamName] = Auth::user();
             } elseif (is_array($routeParamName)) {
                 [$routeParamName, $resolverClosure] = $routeParamName;
-                $resolvedDependencies[$constructorParamName] = $resolverClosure(Route::parameter($routeParamName));
+                $resolvedDependencies[$constructorParamName] = $resolverClosure(request()->route()->parameter($routeParamName));
             } else {
-                $resolvedDependencies[$constructorParamName] = Route::parameter($routeParamName);
+                $resolvedDependencies[$constructorParamName] = request()->route()->parameter($routeParamName);
             }
         }
         return App::makeWith($smartServiceClass, $resolvedDependencies);
